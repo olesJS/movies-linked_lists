@@ -1,38 +1,47 @@
-# Movies Stack and Queue in C
+# Movies Stack and Queue Management in C
 
-This program manages a list of movies (name and year) using a doubly linked stack and a sorted queue.
+This C program allows you to enter movie information (title and release year) either from the keyboard or from a text file, stores the data in a doubly linked stack, and then transfers it to a queue sorted by the release year.
 
-## Features
+## Description
 
-* Input movies from **keyboard** or **text file** (`name|year` format).
-* Store movies in a **doubly linked stack**.
-* Transfer movies to a **queue sorted by year (descending)**.
-* Print stack (forward and backward) and queue.
-* Proper memory management.
+* Movie data is stored in the `INFORMATION` structure.
+* A doubly linked stack (`STACK_ELEMENT`) is used for initial storage.
+* Data is transferred from the stack to a queue (`QUEUE_ELEMENT`), sorted by release year in descending order.
+* Supports two input methods:
 
-## Usage
+  * From keyboard.
+  * From a text file (line format: `title|year`).
 
-1. Edit `databasePath` variable to set your file path (if needed).
-2. Compile:
+## Movie File Format
 
-   ```bash
-   gcc -o movies movies.c
-   ```
-3. Run:
+Each line should be in the format:
 
-   ```bash
-   ./movies
-   ```
-4. Choose input source:
-   `1` — Keyboard
-   `2` — File
-5. Follow prompts to enter or load movies.
-6. View results printed on screen.
+```
+Movie Title|Year
+```
 
-## File Format Example
+Example:
 
 ```
 Inception|2010
 The Matrix|1999
 Interstellar|2014
 ```
+
+## Structures
+
+* `INFORMATION` — contains movie title (string) and release year (int).
+* `STACK_ELEMENT` — element of the doubly linked stack.
+* `QUEUE_ELEMENT` — element of the singly linked queue.
+
+## Implementation Details
+
+* The stack is a doubly linked list to enable forward and backward printing.
+* The queue is sorted by year in descending order.
+* Uses dynamic memory allocation.
+* Input validation for year and data source choice.
+
+## Limitations
+
+* Movie years must be between 0 and 2025.
+* Maximum line length is 100 characters.
